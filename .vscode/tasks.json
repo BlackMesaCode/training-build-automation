@@ -1,0 +1,48 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    // we dont really need a tasks.json for vscode to recognize tasks defined in gulpfile.js
+    // we need tasks.json if we want to add problemmatchers to gulp tasks
+    "version": "0.1.0",
+    "command": "gulp",
+    "isShellCommand": true,
+
+    "args": [
+        "--no-color"
+    ],
+    "tasks": [{
+        "taskName": "default",
+        // VS Code processes the output from a task with a problem matcher 
+        // vscode ships with a number of them 'out of the box
+        // TypeScript: $tsc assumes that file names in the output are relative to the opened folder.
+        // TypeScript Watch: $tsc-watch matches problems reported from the tsc compiler when executed in watch mode.
+        // JSHint: $jshint assumes that file names are reported as an absolute path.
+        // JSHint Stylish: $jshint-stylish assumes that file names are reported as an absolute path.
+        // ESLint Compact: $eslint-compact assumes that file names in the output are relative to the opened folder.
+        // ESLint Stylish: $eslint-stylish assumes that file names in the output are relative to the opened folder.
+        // CSharp and VB Compiler: $mscompile assumes that file names are reported as an absolute path.
+        // Less: $lessCompile assumes that file names are reported as absolute path.
+        "problemMatcher": [
+            "$lessCompile",
+            "$tsc",
+            "$jshint"
+        ],
+        "isBuildCommand": false // If this property is set to true, Ctrl+Shift+B will trigger this task. - This is not the same as Debug (F5)
+    }]
+}
+
+
+// Global Vars for usage in tasks.json and launch.json - these may for example be used to pass the current file as an argument to a command
+
+// ${workspaceRoot} the path of the folder opened in VS Code
+// ${file} the current opened file
+// ${relativeFile} the current opened file relative to workspaceRoot
+// ${fileBasename} the current opened file's basename
+// ${fileDirname} the current opened file's dirname
+// ${fileExtname} the current opened file's extension
+// ${cwd} the task runner's current working directory on startup
+
+
+// Running multiple different commands is currently not supported by vscode
+// workaround can be found here: http://code.visualstudio.com/docs/editor/tasks (at the bottom)
+// prefered way is to just use gulp ...
