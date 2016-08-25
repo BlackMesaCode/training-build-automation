@@ -11,24 +11,29 @@
         "--no-color"
     ],
     "tasks": [{
-        "taskName": "default",
-        // VS Code processes the output from a task with a problem matcher 
-        // vscode ships with a number of them 'out of the box
-        // TypeScript: $tsc assumes that file names in the output are relative to the opened folder.
-        // TypeScript Watch: $tsc-watch matches problems reported from the tsc compiler when executed in watch mode.
-        // JSHint: $jshint assumes that file names are reported as an absolute path.
-        // JSHint Stylish: $jshint-stylish assumes that file names are reported as an absolute path.
-        // ESLint Compact: $eslint-compact assumes that file names in the output are relative to the opened folder.
-        // ESLint Stylish: $eslint-stylish assumes that file names in the output are relative to the opened folder.
-        // CSharp and VB Compiler: $mscompile assumes that file names are reported as an absolute path.
-        // Less: $lessCompile assumes that file names are reported as absolute path.
-        "problemMatcher": [
-            "$lessCompile",
-            "$tsc",
-            "$jshint"
-        ],
-        "isBuildCommand": false // If this property is set to true, Ctrl+Shift+B will trigger this task. - This is not the same as Debug (F5)
-    }]
+            "taskName": "default",
+            // VS Code processes the output from a task with a problem matcher 
+            // vscode ships with a number of them 'out of the box
+            // TypeScript: $tsc assumes that file names in the output are relative to the opened folder.
+            // TypeScript Watch: $tsc-watch matches problems reported from the tsc compiler when executed in watch mode.
+            // JSHint: $jshint assumes that file names are reported as an absolute path.
+            // JSHint Stylish: $jshint-stylish assumes that file names are reported as an absolute path.
+            // ESLint Compact: $eslint-compact assumes that file names in the output are relative to the opened folder.
+            // ESLint Stylish: $eslint-stylish assumes that file names in the output are relative to the opened folder.
+            // CSharp and VB Compiler: $mscompile assumes that file names are reported as an absolute path.
+            // Less: $lessCompile assumes that file names are reported as absolute path.
+            "problemMatcher": [
+                "$lessCompile",
+                "$tsc",
+                "$jshint"
+            ],
+            "isBuildCommand": false // If this property is set to true, Ctrl+Shift+B will trigger this task. - This is not the same as Debug (F5)
+        }, {
+            "taskName": "build",
+            "isBuildCommand": true
+        }
+
+    ]
 }
 
 
